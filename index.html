@@ -3,54 +3,63 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nandhu KN | Portfolio</title>
+<title>Nandhu KN | Business Analyst</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins', sans-serif;
-}
-
-html{
-    scroll-behavior:smooth;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
     background:#111;
     color:#fff;
+    line-height:1.6;
 }
 
-/* Navbar */
+html{scroll-behavior:smooth;}
+
 nav{
     position:fixed;
     width:100%;
     top:0;
-    padding:15px 0;
+    background:rgba(0,0,0,0.8);
     backdrop-filter:blur(10px);
-    background:rgba(0,0,0,0.6);
-    display:flex;
-    justify-content:center;
+    padding:15px;
+    text-align:center;
     z-index:1000;
 }
 
 nav a{
     color:#fff;
-    margin:0 20px;
+    margin:0 15px;
     text-decoration:none;
     font-weight:500;
-    transition:0.3s;
 }
 
-nav a:hover{
-    color:#bbb;
+nav a:hover{color:#bbb;}
+
+section{
+    padding:100px 10%;
 }
 
-/* Hero Section */
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:2.5rem;
+    border-bottom:2px solid #888;
+    display:inline-block;
+    padding-bottom:10px;
+}
+
+/* HERO */
 #hero{
     height:100vh;
     display:flex;
@@ -68,149 +77,67 @@ nav a:hover{
     object-fit:cover;
     border:3px solid #666;
     margin-bottom:20px;
-    transition:0.4s;
 }
 
-#hero img:hover{
-    transform:scale(1.05);
-}
+#hero h1{font-size:3rem;}
 
-#hero h1{
-    font-size:3rem;
-    letter-spacing:2px;
-}
-
-#hero p{
-    color:#aaa;
-    margin:15px 0;
-}
+#hero p{color:#aaa;margin:10px 0;}
 
 .btn{
     padding:10px 25px;
     border:1px solid #888;
-    background:transparent;
+    background:none;
     color:#fff;
     cursor:pointer;
+    border-radius:25px;
     transition:0.3s;
-    border-radius:30px;
 }
 
 .btn:hover{
     background:#888;
 }
 
-/* Sections */
-section{
-    padding:100px 10%;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:60px;
-}
-
-.section-title h2{
-    font-size:2.5rem;
-    position:relative;
-    display:inline-block;
-}
-
-.section-title h2::after{
-    content:'';
-    position:absolute;
-    width:60%;
-    height:2px;
-    background:#888;
-    bottom:-10px;
-    left:20%;
-}
-
-/* About */
-#about p{
-    max-width:800px;
-    margin:0 auto;
-    line-height:1.8;
-    color:#ccc;
-    text-align:center;
-}
-
-/* Skills */
-.skill{
-    margin-bottom:25px;
-}
-
-.skill-name{
-    margin-bottom:8px;
-}
-
-.skill-bar{
-    height:10px;
-    background:#333;
-    border-radius:20px;
-    overflow:hidden;
-}
-
-.skill-progress{
-    height:100%;
-    background:linear-gradient(to right,#888,#fff);
-    width:0;
-    transition:1.5s ease;
-}
-
-/* Experience Cards */
+/* EXPERIENCE */
 .card{
     background:#1c1c1c;
     padding:25px;
     border-radius:10px;
     margin-bottom:30px;
-    transition:0.3s;
 }
 
-.card:hover{
-    transform:translateY(-5px);
-    background:#222;
-}
+.card h3{margin-bottom:5px;}
+.card small{color:#aaa;}
+.card ul{margin-top:10px;padding-left:20px;}
+.card ul li{margin-bottom:6px;color:#ccc;}
 
-/* Projects */
-.project-grid{
+/* SKILLS */
+.skills-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
     gap:20px;
 }
 
-.project{
+.skill-box{
     background:#1a1a1a;
     padding:20px;
-    border-radius:10px;
-    transition:0.3s;
+    border-radius:8px;
 }
 
-.project:hover{
-    transform:scale(1.05);
+.skill-box h4{
+    margin-bottom:10px;
+    color:#bbb;
 }
 
-/* Footer */
+/* FOOTER */
 footer{
-    text-align:center;
-    padding:40px 0;
     background:#000;
+    text-align:center;
+    padding:30px;
     color:#777;
 }
-
-/* Animation */
-.fade{
-    opacity:0;
-    transform:translateY(30px);
-    transition:1s;
-}
-
-.fade.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
 </style>
 </head>
+
 <body>
 
 <nav>
@@ -218,103 +145,152 @@ footer{
 <a href="#about">About</a>
 <a href="#skills">Skills</a>
 <a href="#experience">Experience</a>
+<a href="#education">Education</a>
 <a href="#projects">Projects</a>
 <a href="#contact">Contact</a>
 </nav>
 
+<!-- HERO -->
 <section id="hero">
 <img src="profile.jpg" alt="Nandhu KN">
 <h1>Nandhu KN</h1>
 <p>Business Analyst | ERP | SQL | Power BI | 3+ Years Experience</p>
-<a href="Nandhu-KN-Resume.pdf" target="_blank"><button class="btn">Download Resume</button></a>
+<a href="Nandhu-KN-Resume.pdf" target="_blank">
+<button class="btn">Download Resume</button>
+</a>
 </section>
 
-<section id="about" class="fade">
-<div class="section-title"><h2>About Me</h2></div>
-<p>
-Detail-oriented Business Analyst with experience in shipping & healthcare domains.
-Skilled in ERP implementation, Jira, UAT coordination, SQL reporting and Power BI dashboards.
-Focused on delivering scalable business solutions and process optimization.
+<!-- ABOUT -->
+<section id="about">
+<div class="section-title"><h2>Professional Summary</h2></div>
+<p style="text-align:center;color:#ccc;max-width:900px;margin:auto;">
+Detail-oriented Business Analyst with 3+ years of experience bridging business and technology teams across healthcare and shipping domains.
+Skilled in ERP implementation, requirement gathering, BRD/FRD preparation, manual testing, UAT coordination, Jira ticket management,
+SQL reporting, Power BI dashboards, and stakeholder communication.
 </p>
 </section>
 
-<section id="skills" class="fade">
-<div class="section-title"><h2>Skills</h2></div>
+<!-- SKILLS -->
+<section id="skills">
+<div class="section-title"><h2>Core Skills</h2></div>
 
-<div class="skill">
-<div class="skill-name">Excel</div>
-<div class="skill-bar"><div class="skill-progress" style="width:95%"></div></div>
+<div class="skills-grid">
+
+<div class="skill-box">
+<h4>Business Analysis</h4>
+<p>Requirement Gathering, BRD, FRD, Gap Analysis, UAT, Stakeholder Communication</p>
 </div>
 
-<div class="skill">
-<div class="skill-name">Power BI</div>
-<div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div>
+<div class="skill-box">
+<h4>Technical Skills</h4>
+<p>SQL, Power BI, Advanced Excel, Basic Python, R Programming</p>
 </div>
 
-<div class="skill">
-<div class="skill-name">SQL</div>
-<div class="skill-bar"><div class="skill-progress" style="width:75%"></div></div>
+<div class="skill-box">
+<h4>Tools</h4>
+<p>Jira, Confluence, MS Office Suite, ERP Systems</p>
+</div>
+
+<div class="skill-box">
+<h4>Soft Skills</h4>
+<p>Problem Solving, Communication, Analytical Thinking, Team Collaboration</p>
+</div>
+
+</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+<div class="section-title"><h2>Professional Experience</h2></div>
+
+<div class="card">
+<h3>Business Analyst – Hikaru Shipping Line FZCO</h3>
+<small>July 2025 – Present | Dubai, UAE</small>
+<ul>
+<li>ERP implementation and system enhancement.</li>
+<li>Managed Jira tickets and coordinated UAT.</li>
+<li>Conducted manual testing and issue resolution.</li>
+<li>Provided end-user training and global client support.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Business Analyst – Carelon Global Solutions</h3>
+<small>Nov 2023 – Apr 2025 | Bangalore, India</small>
+<ul>
+<li>Created BRD & FRD documentation.</li>
+<li>Built SQL queries and Power BI dashboards.</li>
+<li>Participated in Agile Scrum ceremonies.</li>
+<li>Coordinated UAT and stakeholder communication.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Business Analyst – Simpfly3x Software Pvt Ltd</h3>
+<small>Nov 2022 – Apr 2023 | Bangalore, India</small>
+<ul>
+<li>Requirement gathering and documentation.</li>
+<li>Process improvement initiatives.</li>
+<li>SQL reporting and UAT execution.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Accountant – Himadri Retreat Cottages</h3>
+<small>Jul 2019 – Jul 2020 | Kerala, India</small>
+<ul>
+<li>Managed payroll and bank reconciliation.</li>
+<li>Prepared financial statements and tax compliance.</li>
+<li>Vendor payment and financial reporting.</li>
+</ul>
 </div>
 
 </section>
 
-<section id="experience" class="fade">
-<div class="section-title"><h2>Experience</h2></div>
+<!-- EDUCATION -->
+<section id="education">
+<div class="section-title"><h2>Education</h2></div>
 
 <div class="card">
-<h3>Business Analyst | Hikaru Shipping Line</h3>
-<p>ERP implementation, Jira tickets, UAT coordination, global client support.</p>
+<h3>MBA in Fintech</h3>
+<small>Pondicherry University | 2020 – 2022</small>
 </div>
 
 <div class="card">
-<h3>Business Analyst | Carelon Global Solutions</h3>
-<p>BRD/FRD creation, SQL queries, Power BI dashboards, Agile Scrum.</p>
+<h3>BBA</h3>
+<small>Kannur University | 2015 – 2018</small>
 </div>
 
 </section>
 
-<section id="projects" class="fade">
+<!-- PROJECTS -->
+<section id="projects">
 <div class="section-title"><h2>Projects</h2></div>
 
-<div class="project-grid">
-<div class="project">
-<h3>Bank Dashboard</h3>
-<p>Power BI financial reporting dashboard.</p>
+<div class="card">
+<h3>Bank Financial Dashboard</h3>
+<p>Developed financial insights dashboard using Power BI.</p>
 </div>
 
-<div class="project">
-<h3>Covid Reports</h3>
-<p>SQL data analysis and visualization.</p>
-</div>
+<div class="card">
+<h3>Covid Case & Vaccination Report</h3>
+<p>Performed SQL data analysis and reporting for Kerala dataset.</p>
 </div>
 
 </section>
 
-<section id="contact" class="fade">
+<!-- CONTACT -->
+<section id="contact">
 <div class="section-title"><h2>Contact</h2></div>
-<p style="text-align:center;">Email: nandhukn010@gmail.com</p>
-<p style="text-align:center;">Dubai, UAE</p>
+<p style="text-align:center;">📍 Dubai, UAE</p>
+<p style="text-align:center;">📞 +971 507189052</p>
+<p style="text-align:center;">✉ nandhukn010@gmail.com</p>
+<p style="text-align:center;">LinkedIn: linkedin.com/in/nandhu-kn-37635612b</p>
 </section>
 
 <footer>
 © 2026 Nandhu KN | All Rights Reserved
 </footer>
-
-<script>
-
-/* Fade animation */
-const faders = document.querySelectorAll('.fade');
-
-window.addEventListener('scroll',()=>{
-    faders.forEach(section=>{
-        const top = section.getBoundingClientRect().top;
-        if(top < window.innerHeight - 100){
-            section.classList.add('show');
-        }
-    });
-});
-
-</script>
 
 </body>
 </html>
