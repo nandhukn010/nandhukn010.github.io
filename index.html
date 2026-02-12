@@ -7,43 +7,64 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 <style>
-    body { font-family: 'Roboto', sans-serif; margin:0; background:#f5f5f5; color:#333; scroll-behavior: smooth;}
-    a { text-decoration:none; color:inherit;}
-    nav { background:#000; padding:1rem;}
-    nav a { color:#fff; margin:0 1rem; font-weight:500;}
-    nav a:hover { color:#ccc;}
-    #hero { background:#000; color:#fff; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
-    #hero img { width:200px; height:200px; border-radius:50%; border:3px solid #888; object-fit:cover;}
-    #hero h1 { margin-top:1rem; font-size:3rem;}
-    #hero p { font-size:1.2rem; color:#ccc;}
-    .btn-download { margin-top:1rem; padding:.6rem 1.2rem; border:none; background:#888; color:#fff; font-weight:500; border-radius:5px;}
-    .btn-download:hover { background:#555;}
-    section { padding:80px 20px; max-width:1000px; margin:0 auto;}
-    .section-title { text-align:center; margin-bottom:50px; }
-    .section-title h2 { font-size:2.5rem; margin-bottom:10px; }
-    /* About */
-    #about p { line-height:1.6; color:#555;}
-    /* Skills */
-    .skill-bar { background:#ddd; border-radius:50px; margin-bottom:15px; overflow:hidden;}
-    .skill-bar div { height:20px; line-height:20px; text-align:right; padding-right:10px; color:#fff; border-radius:50px;}
-    .skill-excel { width:95%; background:#000;}
-    .skill-powerbi { width:85%; background:#444;}
-    .skill-sql { width:75%; background:#666;}
-    .skill-python { width:50%; background:#888;}
-    /* Timeline */
-    .timeline { position:relative; padding-left:20px; }
-    .timeline::before { content:''; position:absolute; top:0; left:10px; width:2px; height:100%; background:#000;}
-    .timeline-item { position:relative; margin-bottom:40px; padding-left:30px; }
-    .timeline-item::before { content:''; position:absolute; left:0; top:0; width:16px; height:16px; background:#000; border-radius:50%; }
-    /* Projects */
-    .card { background:#fff; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,.1); overflow:hidden; }
-    .card img { width:100%; }
-    .card-body { padding:15px; }
-    .card-body h5 { margin-bottom:10px; }
-    .card-body p { color:#555; font-size:.9rem; }
-    .card-body a { display:inline-block; margin-top:10px; color:#000; border:1px solid #000; padding:.4rem .8rem; border-radius:5px; }
-    .card-body a:hover { background:#000; color:#fff; }
-    footer { background:#222; color:#fff; text-align:center; padding:40px 20px;}
+/* Global Styles */
+body { font-family: 'Roboto', sans-serif; margin:0; background:#f5f5f5; color:#333; scroll-behavior: smooth;}
+a { text-decoration:none; color:inherit;}
+section { padding:80px 20px; max-width:1000px; margin:0 auto;}
+.section-title { text-align:center; margin-bottom:50px;}
+.section-title h2 { font-size:2.5rem; margin-bottom:10px;}
+
+/* Navbar */
+nav { background:#000; padding:1rem; position:fixed; width:100%; top:0; z-index:100;}
+nav a { color:#fff; margin:0 1rem; font-weight:500;}
+nav a:hover { color:#ccc; }
+
+/* Hero Section */
+#hero { background:#000; color:#fff; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
+#hero img { width:200px; height:200px; border-radius:50%; border:3px solid #888; object-fit:cover;}
+#hero h1 { margin-top:1rem; font-size:3rem; }
+#hero p { font-size:1.2rem; color:#ccc; margin:0.5rem 0; }
+.btn-download { margin-top:1rem; padding:.6rem 1.2rem; border:none; background:#888; color:#fff; font-weight:500; border-radius:5px;}
+.btn-download:hover { background:#555;}
+
+/* About Section */
+#about p { line-height:1.6; color:#555; }
+#about strong { color:#000; }
+
+/* Skills */
+.skill-bar { background:#ddd; border-radius:50px; margin-bottom:15px; overflow:hidden;}
+.skill-bar div { height:20px; line-height:20px; text-align:right; padding-right:10px; color:#fff; border-radius:50px;}
+.skill-excel { width:95%; background:#000;}
+.skill-powerbi { width:85%; background:#444;}
+.skill-sql { width:75%; background:#666;}
+.skill-python { width:50%; background:#888;}
+.skill-r { width:40%; background:#aaa;}
+
+/* Timeline / Experience */
+.timeline { position:relative; padding-left:20px; }
+.timeline::before { content:''; position:absolute; top:0; left:10px; width:2px; height:100%; background:#000;}
+.timeline-item { position:relative; margin-bottom:40px; padding-left:30px; }
+.timeline-item::before { content:''; position:absolute; left:0; top:0; width:16px; height:16px; background:#000; border-radius:50%; }
+.timeline-item h5 { margin:0; font-size:1.2rem; color:#000; }
+.timeline-item small { color:#555; }
+
+/* Education & Certifications */
+.edu-item, .cert-item { margin-bottom:20px; }
+
+/* Projects */
+.card { background:#fff; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,.1); overflow:hidden; margin-bottom:20px; }
+.card img { width:100%; }
+.card-body { padding:15px; }
+.card-body h5 { margin-bottom:10px; }
+.card-body p { color:#555; font-size:.9rem; }
+.card-body a { display:inline-block; margin-top:10px; color:#000; border:1px solid #000; padding:.4rem .8rem; border-radius:5px; }
+.card-body a:hover { background:#000; color:#fff; }
+
+/* Footer */
+footer { background:#222; color:#fff; text-align:center; padding:40px 20px; margin-top:50px; }
+
+/* Responsive */
+@media(max-width:768px){ nav a { display:block; margin:0.5rem 0; } #hero img { width:150px; height:150px;} }
 </style>
 </head>
 <body>
@@ -71,8 +92,7 @@
 <section id="about">
     <div class="section-title"><h2>About Me</h2></div>
     <p>Detail-oriented Business Analyst with 3+ years of experience bridging business and technology teams across healthcare 
-    and now the shipping/logistics domain. Currently engaged in ERP implementation and support for shipping operations, 
-    specialising in manual testing, Jira ticket management, UAT coordination, and end-user training for global clients...</p>
+    and shipping/logistics domains. Skilled in ERP implementation, manual testing, Jira ticket management, UAT coordination, and end-user training. Passionate about delivering high-quality, scalable solutions and supporting continuous improvement.</p>
     <p><strong>Contact:</strong> Dubai, UAE | +971 507189052 | <a href="mailto:nandhukn010@gmail.com">Email</a> | <a href="https://linkedin.com/in/nandhu-kn-37635612b" target="_blank">LinkedIn</a></p>
 </section>
 
@@ -83,6 +103,7 @@
     <div class="skill-bar"><div class="skill-powerbi">Power BI 85%</div></div>
     <div class="skill-bar"><div class="skill-sql">SQL 75%</div></div>
     <div class="skill-bar"><div class="skill-python">Python 50%</div></div>
+    <div class="skill-bar"><div class="skill-r">R 40%</div></div>
 </section>
 
 <!-- Experience -->
@@ -92,14 +113,67 @@
         <div class="timeline-item">
             <h5>Business Analyst | Hikaru Shipping Line FZCO</h5>
             <small>July 2025 – Present | Dubai, UAE</small>
-            <p>ERP implementation & support for shipping/logistics operations. Manual testing, Jira ticket management, UAT coordination, end-user training.</p>
+            <p>ERP implementation & support, manual testing, Jira ticket management, UAT coordination, end-user training for global clients, process optimization.</p>
         </div>
         <div class="timeline-item">
             <h5>Business Analyst | Carelon Global Solutions</h5>
             <small>Nov 2023 – Apr 2025 | Bangalore, India</small>
-            <p>Liaison between business and technical teams, BRD/FRD creation, SQL & Power BI dashboards, Agile ceremonies participation.</p>
+            <p>BRD/FRD creation, SQL & Power BI reporting, Agile Scrum ceremonies, UAT coordination, stakeholder communication, process improvement initiatives.</p>
+        </div>
+        <div class="timeline-item">
+            <h5>Business Analyst | Simpfly3x Software Pvt Ltd</h5>
+            <small>Nov 2022 – Apr 2023 | Bangalore, India</small>
+            <p>Business requirement gathering, process improvements, functional specifications, SQL reporting, Agile ceremonies, UAT execution.</p>
+        </div>
+        <div class="timeline-item">
+            <h5>Accountant | Himadri Retreat Cottages</h5>
+            <small>Jul 2019 – Jul 2020 | Kerala, India</small>
+            <p>Full-cycle accounting, payroll, bank reconciliation, financial statements, tax compliance, vendor payments, reporting and process streamlining.</p>
         </div>
     </div>
+</section>
+
+<!-- Education & Certifications -->
+<section id="education">
+    <div class="section-title"><h2>Education & Certifications</h2></div>
+    <div class="edu-item">
+        <strong>MBA in Fintech</strong> | Pondicherry University | 2020 – 2022
+    </div>
+    <div class="edu-item">
+        <strong>BBA</strong> | Kannur University | 2015 – 2018
+    </div>
+    <div class="cert-item">
+        Business Analyst certified by Skillsoft | SQL certified by Great Learning | Power BI certified | Certified Industrial Accountant
+    </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+    <div class="section-title"><h2>Projects</h2></div>
+    <div class="card">
+        <img src="img/project1.png" alt="Bank Financial Statement Dashboard">
+        <div class="card-body">
+            <h5>Bank Financial Statement Dashboard</h5>
+            <p>Using Power BI for financial reporting and insights.</p>
+            <a href="projects/bank_dashboard.pdf" target="_blank">Read More</a>
+        </div>
+    </div>
+    <div class="card">
+        <img src="img/project2.png" alt="Covid Cases & Vaccination">
+        <div class="card-body">
+            <h5>Covid Cases & Vaccination Reports</h5>
+            <p>SQL queries and dashboards for Kerala health reports.</p>
+            <a href="projects/covid_reports.pdf" target="_blank">Read More</a>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+    <div class="section-title"><h2>Contact</h2></div>
+    <p>Email: <a href="mailto:nandhukn010@gmail.com">nandhukn010@gmail.com</a></p>
+    <p>Phone: +971 507189052</p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/nandhu-kn-37635612b" target="_blank">linkedin.com/in/nandhu-kn-37635612b</a></p>
 </section>
 
 <!-- Footer -->
