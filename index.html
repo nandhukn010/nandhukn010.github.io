@@ -3,240 +3,297 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nandhu KN | Business Analyst</title>
+<title>Nandhu KN | Portfolio</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#111;color:#fff;line-height:1.6;}
-html{scroll-behavior:smooth;}
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#111;
+    color:#fff;
+}
+
+/* Navbar */
 nav{
-position:fixed;width:100%;top:0;background:rgba(0,0,0,0.8);
-backdrop-filter:blur(10px);padding:15px;text-align:center;z-index:1000;
-}
-nav a{color:#fff;margin:0 15px;text-decoration:none;}
-nav a:hover{color:#aaa;}
-
-section{padding:100px 10%;}
-.section-title{text-align:center;margin-bottom:50px;}
-.section-title h2{
-font-size:2.3rem;border-bottom:2px solid #888;
-display:inline-block;padding-bottom:10px;
+    position:fixed;
+    width:100%;
+    top:0;
+    padding:15px 0;
+    backdrop-filter:blur(10px);
+    background:rgba(0,0,0,0.6);
+    display:flex;
+    justify-content:center;
+    z-index:1000;
 }
 
-/* HERO */
+nav a{
+    color:#fff;
+    margin:0 20px;
+    text-decoration:none;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#bbb;
+}
+
+/* Hero Section */
 #hero{
-height:100vh;display:flex;flex-direction:column;
-justify-content:center;align-items:center;text-align:center;
-background:linear-gradient(to bottom,#000,#1a1a1a);
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:linear-gradient(to bottom,#000,#1a1a1a);
 }
+
 #hero img{
-width:180px;height:180px;border-radius:50%;
-object-fit:cover;border:3px solid #666;margin-bottom:20px;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #666;
+    margin-bottom:20px;
+    transition:0.4s;
 }
+
+#hero img:hover{
+    transform:scale(1.05);
+}
+
+#hero h1{
+    font-size:3rem;
+    letter-spacing:2px;
+}
+
+#hero p{
+    color:#aaa;
+    margin:15px 0;
+}
+
 .btn{
-padding:10px 25px;border:1px solid #888;
-background:none;color:#fff;border-radius:25px;
-cursor:pointer;transition:0.3s;
+    padding:10px 25px;
+    border:1px solid #888;
+    background:transparent;
+    color:#fff;
+    cursor:pointer;
+    transition:0.3s;
+    border-radius:30px;
 }
-.btn:hover{background:#888;}
 
-/* CARDS */
+.btn:hover{
+    background:#888;
+}
+
+/* Sections */
+section{
+    padding:100px 10%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:2.5rem;
+    position:relative;
+    display:inline-block;
+}
+
+.section-title h2::after{
+    content:'';
+    position:absolute;
+    width:60%;
+    height:2px;
+    background:#888;
+    bottom:-10px;
+    left:20%;
+}
+
+/* About */
+#about p{
+    max-width:800px;
+    margin:0 auto;
+    line-height:1.8;
+    color:#ccc;
+    text-align:center;
+}
+
+/* Skills */
+.skill{
+    margin-bottom:25px;
+}
+
+.skill-name{
+    margin-bottom:8px;
+}
+
+.skill-bar{
+    height:10px;
+    background:#333;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.skill-progress{
+    height:100%;
+    background:linear-gradient(to right,#888,#fff);
+    width:0;
+    transition:1.5s ease;
+}
+
+/* Experience Cards */
 .card{
-background:#1c1c1c;padding:25px;
-border-radius:10px;margin-bottom:30px;
+    background:#1c1c1c;
+    padding:25px;
+    border-radius:10px;
+    margin-bottom:30px;
+    transition:0.3s;
 }
-.card ul{margin-top:10px;padding-left:20px;}
-.card ul li{margin-bottom:8px;color:#ccc;}
 
-/* COUNTERS */
-.counter-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;text-align:center;
+.card:hover{
+    transform:translateY(-5px);
+    background:#222;
 }
-.counter{
-background:#1a1a1a;padding:30px;border-radius:10px;
-}
-.counter h3{font-size:2.5rem;color:#fff;}
-.counter p{color:#aaa;}
 
-/* PROJECT GRID */
+/* Projects */
 .project-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
 }
+
 .project{
-background:#1a1a1a;border-radius:10px;
-overflow:hidden;
+    background:#1a1a1a;
+    padding:20px;
+    border-radius:10px;
+    transition:0.3s;
 }
-.project img{
-width:100%;height:200px;object-fit:cover;
-}
-.project-content{padding:20px;}
-.project-content h3{margin-bottom:10px;}
 
-/* CONTACT FORM */
-form{
-max-width:600px;margin:auto;
+.project:hover{
+    transform:scale(1.05);
 }
-input, textarea{
-width:100%;padding:12px;margin-bottom:15px;
-border:none;border-radius:5px;
-background:#222;color:#fff;
-}
-button[type="submit"]{
-width:100%;padding:12px;
-border:none;background:#888;
-color:#fff;border-radius:5px;
-cursor:pointer;
-}
-button[type="submit"]:hover{background:#aaa;}
 
+/* Footer */
 footer{
-background:#000;text-align:center;
-padding:30px;color:#777;
+    text-align:center;
+    padding:40px 0;
+    background:#000;
+    color:#777;
 }
+
+/* Animation */
+.fade{
+    opacity:0;
+    transform:translateY(30px);
+    transition:1s;
+}
+
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
 </style>
 </head>
-
 <body>
 
 <nav>
 <a href="#hero">Home</a>
 <a href="#about">About</a>
-<a href="#achievements">Achievements</a>
+<a href="#skills">Skills</a>
 <a href="#experience">Experience</a>
-<a href="#certifications">Certifications</a>
 <a href="#projects">Projects</a>
 <a href="#contact">Contact</a>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
 <img src="profile.jpg" alt="Nandhu KN">
 <h1>Nandhu KN</h1>
-<p>Business Analyst | ERP | SQL | Power BI | 3+ Years</p>
-<a href="Nandhu-KN-Resume.pdf" target="_blank">
-<button class="btn">Download Resume</button>
-</a>
+<p>Business Analyst | ERP | SQL | Power BI | 3+ Years Experience</p>
+<a href="Nandhu-KN-Resume.pdf" target="_blank"><button class="btn">Download Resume</button></a>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-<div class="section-title"><h2>Professional Summary</h2></div>
-<p style="text-align:center;color:#ccc;max-width:900px;margin:auto;">
-Business Analyst with 3+ years experience in ERP systems, SQL reporting, Power BI dashboards,
-requirement gathering, BRD/FRD documentation, and Agile methodologies.
+<section id="about" class="fade">
+<div class="section-title"><h2>About Me</h2></div>
+<p>
+Detail-oriented Business Analyst with experience in shipping & healthcare domains.
+Skilled in ERP implementation, Jira, UAT coordination, SQL reporting and Power BI dashboards.
+Focused on delivering scalable business solutions and process optimization.
 </p>
 </section>
 
-<!-- ACHIEVEMENTS WITH COUNTERS -->
-<section id="achievements">
-<div class="section-title"><h2>Achievements</h2></div>
+<section id="skills" class="fade">
+<div class="section-title"><h2>Skills</h2></div>
 
-<div class="counter-grid">
-
-<div class="counter">
-<h3 class="count" data-target="20">0</h3>
-<p>% Process Efficiency Improved</p>
+<div class="skill">
+<div class="skill-name">Excel</div>
+<div class="skill-bar"><div class="skill-progress" style="width:95%"></div></div>
 </div>
 
-<div class="counter">
-<h3 class="count" data-target="15">0</h3>
-<p>+ Projects Delivered</p>
+<div class="skill">
+<div class="skill-name">Power BI</div>
+<div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div>
 </div>
 
-<div class="counter">
-<h3 class="count" data-target="100">0</h3>
-<p>+ Jira Tickets Managed</p>
-</div>
-
-<div class="counter">
-<h3 class="count" data-target="3">0</h3>
-<p>Years Experience</p>
-</div>
-
-</div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-<div class="section-title"><h2>Professional Experience</h2></div>
-
-<div class="card">
-<h3>Business Analyst – Hikaru Shipping Line</h3>
-<ul>
-<li>Improved operational workflow efficiency by 20%.</li>
-<li>Handled 100+ Jira tickets and coordinated UAT.</li>
-<li>Conducted ERP implementation support.</li>
-</ul>
-</div>
-
-<div class="card">
-<h3>Business Analyst – Carelon</h3>
-<ul>
-<li>Built 15+ Power BI dashboards.</li>
-<li>Reduced reporting errors by 30%.</li>
-<li>Created BRD & FRD documentation.</li>
-</ul>
+<div class="skill">
+<div class="skill-name">SQL</div>
+<div class="skill-bar"><div class="skill-progress" style="width:75%"></div></div>
 </div>
 
 </section>
 
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-<div class="section-title"><h2>Certifications</h2></div>
+<section id="experience" class="fade">
+<div class="section-title"><h2>Experience</h2></div>
 
 <div class="card">
-<ul>
-<li>Business Analyst Certification – Skillsoft</li>
-<li>SQL Certification – Great Learning</li>
-<li>Power BI Certification</li>
-<li>Certified Industrial Accountant</li>
-</ul>
+<h3>Business Analyst | Hikaru Shipping Line</h3>
+<p>ERP implementation, Jira tickets, UAT coordination, global client support.</p>
+</div>
+
+<div class="card">
+<h3>Business Analyst | Carelon Global Solutions</h3>
+<p>BRD/FRD creation, SQL queries, Power BI dashboards, Agile Scrum.</p>
 </div>
 
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
+<section id="projects" class="fade">
 <div class="section-title"><h2>Projects</h2></div>
 
 <div class="project-grid">
-
 <div class="project">
-<img src="project1.jpg" alt="Bank Dashboard">
-<div class="project-content">
-<h3>Bank Financial Dashboard</h3>
-<p>Power BI dashboard with KPI tracking and financial insights.</p>
-</div>
+<h3>Bank Dashboard</h3>
+<p>Power BI financial reporting dashboard.</p>
 </div>
 
 <div class="project">
-<img src="project2.jpg" alt="Covid Dashboard">
-<div class="project-content">
-<h3>Covid SQL Report</h3>
-<p>SQL-based analytics with visual reporting dashboard.</p>
+<h3>Covid Reports</h3>
+<p>SQL data analysis and visualization.</p>
 </div>
 </div>
 
-</div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-<div class="section-title"><h2>Contact Me</h2></div>
-
-<form action="https://formspree.io/f/yourformid" method="POST">
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="email" name="email" placeholder="Your Email" required>
-<textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-<button type="submit">Send Message</button>
-</form>
-
+<section id="contact" class="fade">
+<div class="section-title"><h2>Contact</h2></div>
+<p style="text-align:center;">Email: nandhukn010@gmail.com</p>
+<p style="text-align:center;">Dubai, UAE</p>
 </section>
 
 <footer>
@@ -244,23 +301,19 @@ requirement gathering, BRD/FRD documentation, and Agile methodologies.
 </footer>
 
 <script>
-// Animated Counter
-const counters = document.querySelectorAll('.count');
-counters.forEach(counter=>{
-counter.innerText='0';
-const updateCounter=()=>{
-const target=+counter.getAttribute('data-target');
-const c=+counter.innerText;
-const increment=target/100;
-if(c<target){
-counter.innerText=`${Math.ceil(c+increment)}`;
-setTimeout(updateCounter,20);
-}else{
-counter.innerText=target;
-}
-};
-updateCounter();
+
+/* Fade animation */
+const faders = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll',()=>{
+    faders.forEach(section=>{
+        const top = section.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+            section.classList.add('show');
+        }
+    });
 });
+
 </script>
 
 </body>
