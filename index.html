@@ -1,296 +1,601 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nandhu KN | Business Analyst</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
-body{
-    background:#111;
-    color:#fff;
-    line-height:1.6;
-}
-
-html{scroll-behavior:smooth;}
-
-nav{
-    position:fixed;
-    width:100%;
-    top:0;
-    background:rgba(0,0,0,0.8);
-    backdrop-filter:blur(10px);
-    padding:15px;
-    text-align:center;
-    z-index:1000;
-}
-
-nav a{
-    color:#fff;
-    margin:0 15px;
-    text-decoration:none;
-    font-weight:500;
-}
-
-nav a:hover{color:#bbb;}
-
-section{
-    padding:100px 10%;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:50px;
-}
-
-.section-title h2{
-    font-size:2.5rem;
-    border-bottom:2px solid #888;
-    display:inline-block;
-    padding-bottom:10px;
-}
-
-/* HERO */
-#hero{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background:linear-gradient(to bottom,#000,#1a1a1a);
-}
-
-#hero img{
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    object-fit:cover;
-    border:3px solid #666;
-    margin-bottom:20px;
-}
-
-#hero h1{font-size:3rem;}
-
-#hero p{color:#aaa;margin:10px 0;}
-
-.btn{
-    padding:10px 25px;
-    border:1px solid #888;
-    background:none;
-    color:#fff;
-    cursor:pointer;
-    border-radius:25px;
-    transition:0.3s;
-}
-
-.btn:hover{
-    background:#888;
-}
-
-/* EXPERIENCE */
-.card{
-    background:#1c1c1c;
-    padding:25px;
-    border-radius:10px;
-    margin-bottom:30px;
-}
-
-.card h3{margin-bottom:5px;}
-.card small{color:#aaa;}
-.card ul{margin-top:10px;padding-left:20px;}
-.card ul li{margin-bottom:6px;color:#ccc;}
-
-/* SKILLS */
-.skills-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
-}
-
-.skill-box{
-    background:#1a1a1a;
-    padding:20px;
-    border-radius:8px;
-}
-
-.skill-box h4{
-    margin-bottom:10px;
-    color:#bbb;
-}
-
-/* FOOTER */
-footer{
-    background:#000;
-    text-align:center;
-    padding:30px;
-    color:#777;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nandhu KN | Business Analyst</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #111118;
+      --surface2: #1a1a24;
+      --border: rgba(255,255,255,0.07);
+      --accent: #c8a96e;
+      --accent2: #7c6bff;
+      --text: #e8e8f0;
+      --muted: #7a7a90;
+      --white: #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
+    .grid-bg {
+      position: fixed; inset: 0;
+      background-image: linear-gradient(rgba(200,169,110,0.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(200,169,110,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none; z-index: 0;
+    }
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 20px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; font-weight: 700; color: var(--accent); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.80rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    /* HERO */
+    #hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 120px 48px 80px; z-index: 1; overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute; width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(200,169,110,0.07) 0%, transparent 70%);
+      top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr auto; gap: 80px; align-items: center;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(200,169,110,0.1);
+      border: 1px solid rgba(200,169,110,0.3);
+      color: var(--accent); font-size: 0.73rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 6px 16px; margin-bottom: 28px; font-family: 'DM Mono', monospace;
+    }
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.5rem, 7vw, 6rem); font-weight: 900;
+      line-height: 1.0; color: var(--white); margin-bottom: 20px;
+    }
+    .hero-name span { color: var(--accent); }
+    .hero-title {
+      font-size: 1.02rem; color: var(--muted); font-weight: 400;
+      margin-bottom: 32px; max-width: 520px; line-height: 1.85;
+    }
+    .hero-stats { display: flex; gap: 40px; margin-bottom: 48px; }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: 'Playfair Display', serif; font-size: 2rem;
+      font-weight: 700; color: var(--accent); display: block;
+    }
+    .stat-label { font-size: 0.70rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent); color: #0a0a0f;
+      padding: 14px 32px; border: none;
+      font-family: 'DM Sans', sans-serif; font-size: 0.88rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s;
+    }
+    .btn-primary:hover { background: #e0bf7f; transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; color: var(--text);
+      padding: 14px 32px; border: 1px solid var(--border);
+      font-family: 'DM Sans', sans-serif; font-size: 0.88rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    .hero-avatar { position: relative; }
+    .avatar-frame { width: 260px; height: 260px; position: relative; }
+    .avatar-frame::before {
+      content: ''; position: absolute; inset: -3px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2)); z-index: -1;
+    }
+    .avatar-frame img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(20%); }
+    .avatar-badge {
+      position: absolute; bottom: -20px; right: -20px;
+      background: var(--accent); color: #0a0a0f;
+      padding: 12px 20px; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    /* SECTIONS */
+    section { position: relative; z-index: 1; padding: 100px 48px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-family: 'DM Mono', monospace; font-size: 0.73rem; color: var(--accent);
+      letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-label::after { content: ''; height: 1px; width: 60px; background: var(--accent); opacity: 0.4; }
+    .section-title {
+      font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700; color: var(--white); margin-bottom: 60px;
+    }
+    /* ABOUT */
+    #about { border-top: 1px solid var(--border); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .about-text p { color: var(--muted); margin-bottom: 20px; font-size: 1.02rem; line-height: 1.85; }
+    .about-text p strong { color: var(--text); }
+    .info-list { margin-top: 36px; }
+    .info-item { display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    .info-key { color: var(--muted); min-width: 100px; font-family: 'DM Mono', monospace; font-size: 0.78rem; }
+    .info-val { color: var(--text); font-weight: 500; }
+    /* SKILLS */
+    #skills { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+    .skill-card {
+      background: var(--bg); border: 1px solid var(--border);
+      padding: 32px; position: relative; overflow: hidden; transition: border-color 0.3s;
+    }
+    .skill-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent); opacity: 0; transition: opacity 0.3s;
+    }
+    .skill-card:hover { border-color: rgba(200,169,110,0.3); }
+    .skill-card:hover::before { opacity: 1; }
+    .skill-card-icon { font-size: 1.6rem; margin-bottom: 14px; }
+    .skill-card h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--white); margin-bottom: 14px; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-tag {
+      background: rgba(200,169,110,0.08); border: 1px solid rgba(200,169,110,0.15);
+      color: var(--accent); font-size: 0.74rem; padding: 4px 11px;
+      font-family: 'DM Mono', monospace; letter-spacing: 0.03em;
+    }
+    /* EXPERIENCE */
+    #experience { border-top: 1px solid var(--border); }
+    .timeline { position: relative; padding-left: 40px; }
+    .timeline::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+    }
+    .timeline-item {
+      position: relative; margin-bottom: 60px; padding-bottom: 60px;
+      border-bottom: 1px solid var(--border);
+    }
+    .timeline-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .timeline-dot {
+      position: absolute; left: -47px; top: 6px;
+      width: 14px; height: 14px; background: var(--accent);
+      border: 2px solid var(--bg); box-shadow: 0 0 0 1px var(--accent);
+    }
+    .timeline-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; flex-wrap: wrap; }
+    .timeline-date { font-family: 'DM Mono', monospace; font-size: 0.76rem; color: var(--accent); letter-spacing: 0.06em; }
+    .timeline-location { font-size: 0.78rem; color: var(--muted); background: var(--surface2); padding: 2px 10px; }
+    .timeline-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--white); margin-bottom: 4px; }
+    .timeline-company { color: var(--muted); font-size: 0.88rem; margin-bottom: 20px; }
+    .timeline-points { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .timeline-points li { display: flex; gap: 12px; color: var(--muted); font-size: 0.92rem; line-height: 1.65; }
+    .timeline-points li::before { content: '→'; color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+    .timeline-points li strong { color: var(--accent); font-weight: 600; }
+    /* EDUCATION */
+    #education { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .edu-card { background: var(--bg); border: 1px solid var(--border); padding: 36px; transition: all 0.3s; }
+    .edu-card:hover { border-color: rgba(200,169,110,0.3); transform: translateY(-4px); }
+    .edu-degree { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--white); margin-bottom: 8px; }
+    .edu-school { color: var(--accent); font-size: 0.9rem; font-weight: 500; margin-bottom: 8px; }
+    .edu-year { color: var(--muted); font-family: 'DM Mono', monospace; font-size: 0.78rem; }
+    /* CERTIFICATIONS */
+    #certifications { border-top: 1px solid var(--border); }
+    .cert-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .cert-card {
+      background: var(--surface); border: 1px solid var(--border);
+      padding: 24px 28px; display: flex; align-items: center; gap: 18px; transition: all 0.25s;
+    }
+    .cert-card:hover { border-color: rgba(200,169,110,0.35); background: rgba(200,169,110,0.04); }
+    .cert-icon { font-size: 1.6rem; width: 44px; text-align: center; flex-shrink: 0; }
+    .cert-name { font-size: 0.95rem; color: var(--text); font-weight: 600; margin-bottom: 4px; }
+    .cert-issuer { font-size: 0.76rem; color: var(--muted); font-family: 'DM Mono', monospace; }
+    /* PROJECTS */
+    #projects { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .project-card {
+      background: var(--bg); border: 1px solid var(--border);
+      padding: 40px; position: relative; overflow: hidden; transition: all 0.3s;
+    }
+    .project-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+    }
+    .project-card:hover { transform: translateY(-4px); border-color: rgba(200,169,110,0.2); }
+    .project-card:hover::after { transform: scaleX(1); }
+    .project-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; color: rgba(200,169,110,0.1); line-height: 1; margin-bottom: 18px; }
+    .project-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--white); margin-bottom: 10px; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .project-tag {
+      background: rgba(124,107,255,0.1); border: 1px solid rgba(124,107,255,0.2);
+      color: #a09aff; font-size: 0.72rem; padding: 3px 10px; font-family: 'DM Mono', monospace;
+    }
+    .project-desc { color: var(--muted); font-size: 0.92rem; line-height: 1.7; }
+    /* CONTACT */
+    #contact { border-top: 1px solid var(--border); }
+    .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .contact-headline { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); color: var(--white); line-height: 1.2; margin-bottom: 20px; }
+    .contact-headline span { color: var(--accent); }
+    .contact-sub { color: var(--muted); margin-bottom: 40px; font-size: 1rem; }
+    .contact-items { display: flex; flex-direction: column; gap: 16px; }
+    .contact-item {
+      display: flex; align-items: center; gap: 16px; color: var(--text);
+      text-decoration: none; padding: 16px 24px; border: 1px solid var(--border);
+      transition: all 0.2s; font-size: 0.93rem;
+    }
+    .contact-item:hover { border-color: rgba(200,169,110,0.4); background: rgba(200,169,110,0.04); color: var(--accent); }
+    .contact-icon { font-size: 1.05rem; width: 24px; text-align: center; }
+    footer {
+      border-top: 1px solid var(--border); padding: 40px 48px;
+      text-align: center; color: var(--muted); font-size: 0.82rem; position: relative; z-index: 1;
+    }
+    footer span { color: var(--accent); }
+    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      #hero, section { padding: 100px 24px 60px; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-avatar { display: none; }
+      .about-grid, .skills-grid, .edu-grid, .cert-grid, .projects-grid, .contact-inner { grid-template-columns: 1fr; gap: 24px; }
+    }
+  </style>
 </head>
-
 <body>
+<div class="grid-bg"></div>
 
 <nav>
-<a href="#hero">Home</a>
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#experience">Experience</a>
-<a href="#education">Education</a>
-<a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
+  <a class="nav-logo" href="#hero">NK</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
-<img src="profile.jpg" alt="Nandhu KN">
-<h1>Nandhu KN</h1>
-<p>Business Analyst | ERP | SQL | Power BI | 3+ Years Experience</p>
-<a href="Nandhu-KN-Resume.pdf" target="_blank">
-<button class="btn">Download Resume</button>
-</a>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-tag">📍 Dubai, UAE · Open to Opportunities</div>
+      <h1 class="hero-name">Nandhu<br><span>KN</span></h1>
+      <p class="hero-title">Business Analyst · ERP Systems · SQL · Power BI (DAX &amp; Data Modelling)<br>Transforming operational data into actionable insights across Healthcare &amp; Shipping</p>
+      <div class="hero-stats">
+        <div class="stat-item"><span class="stat-num">3+</span><span class="stat-label">Years Exp</span></div>
+        <div class="stat-item"><span class="stat-num">15%</span><span class="stat-label">Process Gain</span></div>
+        <div class="stat-item"><span class="stat-num">4</span><span class="stat-label">Certifications</span></div>
+      </div>
+      <div class="hero-actions">
+        <a href="Nandhu-KN-Resume.pdf" class="btn-primary" download>Download Resume</a>
+        <a href="#contact" class="btn-outline">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-avatar">
+      <div class="avatar-frame">
+        <img src="profile.jpg" alt="Nandhu KN"
+             onerror="this.style.background='linear-gradient(135deg,#1a1a24,#2a2a3a)';this.removeAttribute('src')">
+        <div class="avatar-badge">BA · ERP · BI</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
-<div class="section-title"><h2>Professional Summary</h2></div>
-<p style="text-align:center;color:#ccc;max-width:900px;margin:auto;">
-Detail-oriented Business Analyst with 3+ years of experience bridging business and technology teams across healthcare and shipping domains.
-Skilled in ERP implementation, requirement gathering, BRD/FRD preparation, manual testing, UAT coordination, Jira ticket management,
-SQL reporting, Power BI dashboards, and stakeholder communication.
-</p>
+  <div class="container fade-up">
+    <div class="section-label">01 / About</div>
+    <h2 class="section-title">Who I Am</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a <strong>detail-oriented Business Analyst</strong> with 3+ years of experience transforming business requirements and operational data into actionable insights across <strong>healthcare and shipping/logistics</strong> domains.</p>
+        <p>Experienced in ERP implementation, data validation, dashboard reporting, and cross-functional collaboration. Skilled in <strong>SQL, Power BI (DAX, data modelling)</strong>, and Advanced Excel to analyse large datasets, monitor KPIs, and support strategic decision-making.</p>
+        <p>Passionate about leveraging Business Intelligence tools to enhance <strong>operational efficiency and customer experience</strong> in data-driven environments. Fluent in English with strong presentation and documentation skills.</p>
+      </div>
+      <div>
+        <div class="info-list">
+          <div class="info-item"><span class="info-key">Name</span><span class="info-val">Nandhu KN</span></div>
+          <div class="info-item"><span class="info-key">Role</span><span class="info-val">Business Analyst</span></div>
+          <div class="info-item"><span class="info-key">Location</span><span class="info-val">Dubai, UAE</span></div>
+          <div class="info-item"><span class="info-key">Experience</span><span class="info-val">3+ Years</span></div>
+          <div class="info-item"><span class="info-key">Domains</span><span class="info-val">Healthcare · Shipping &amp; Logistics</span></div>
+          <div class="info-item"><span class="info-key">Languages</span><span class="info-val">English (Fluent)</span></div>
+          <div class="info-item"><span class="info-key">Phone</span><span class="info-val">+971 507 189 052</span></div>
+          <div class="info-item"><span class="info-key">Email</span><span class="info-val">nandhukn010@gmail.com</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
-<div class="section-title"><h2>Core Skills</h2></div>
-
-<div class="skills-grid">
-
-<div class="skill-box">
-<h4>Business Analysis</h4>
-<p>Requirement Gathering, BRD, FRD, Gap Analysis, UAT, Stakeholder Communication</p>
-</div>
-
-<div class="skill-box">
-<h4>Technical Skills</h4>
-<p>SQL, Power BI, Advanced Excel, Basic Python, R Programming</p>
-</div>
-
-<div class="skill-box">
-<h4>Tools</h4>
-<p>Jira, Confluence, MS Office Suite, ERP Systems</p>
-</div>
-
-<div class="skill-box">
-<h4>Soft Skills</h4>
-<p>Problem Solving, Communication, Analytical Thinking, Team Collaboration</p>
-</div>
-
-</div>
+  <div class="container fade-up">
+    <div class="section-label">02 / Skills</div>
+    <h2 class="section-title">What I Bring</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-card-icon">📋</div>
+        <h4>Business Analysis</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">BRD</span><span class="skill-tag">FRD</span>
+          <span class="skill-tag">User Stories</span><span class="skill-tag">Use Cases</span>
+          <span class="skill-tag">Gap Analysis</span><span class="skill-tag">Process Mapping</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon">📊</div>
+        <h4>Data Analysis &amp; BI</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">SQL</span><span class="skill-tag">Power BI</span>
+          <span class="skill-tag">DAX</span><span class="skill-tag">Data Modelling</span>
+          <span class="skill-tag">Advanced Excel</span><span class="skill-tag">Pivot Tables</span>
+          <span class="skill-tag">Macros</span><span class="skill-tag">VLOOKUP</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon">🔧</div>
+        <h4>Tools &amp; Project Management</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Jira</span><span class="skill-tag">Confluence</span>
+          <span class="skill-tag">Agile / Scrum</span><span class="skill-tag">Sprint Planning</span>
+          <span class="skill-tag">Backlog Grooming</span><span class="skill-tag">MS Office Suite</span>
+          <span class="skill-tag">ERP Systems</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon">🧪</div>
+        <h4>Testing &amp; Programming</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">UAT Coordination</span><span class="skill-tag">Test Case Creation</span>
+          <span class="skill-tag">Defect Tracking</span><span class="skill-tag">A/B Testing</span>
+          <span class="skill-tag">Python (Basic)</span><span class="skill-tag">R Programming</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience">
-<div class="section-title"><h2>Professional Experience</h2></div>
+  <div class="container fade-up">
+    <div class="section-label">03 / Experience</div>
+    <h2 class="section-title">Career Journey</h2>
+    <div class="timeline">
 
-<div class="card">
-<h3>Business Analyst – Hikaru Shipping Line FZCO</h3>
-<small>July 2025 – Present | Dubai, UAE</small>
-<ul>
-<li>ERP implementation and system enhancement.</li>
-<li>Managed Jira tickets and coordinated UAT.</li>
-<li>Conducted manual testing and issue resolution.</li>
-<li>Provided end-user training and global client support.</li>
-</ul>
-</div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-date">Jul 2025 – Present</span>
+          <span class="timeline-location">📍 Dubai, UAE</span>
+        </div>
+        <h3 class="timeline-title">Business Analyst</h3>
+        <div class="timeline-company">Hikaru Shipping Line FZCO</div>
+        <ul class="timeline-points">
+          <li>Collect, analyse, and interpret operational data on shipping movements, container tracking, billing cycles, and customer transactions to identify trends and performance gaps</li>
+          <li>Develop and maintain Power BI dashboards and Excel reports to visualise KPIs — turnaround time, shipment delays, revenue trends, and operational efficiency metrics</li>
+          <li>Collaborate with cross-functional teams (operations, finance, customer service, IT) to understand business needs and deliver data-driven recommendations</li>
+          <li>Support ERP implementation and enhancements by validating data flows, system integrations, and reporting accuracy</li>
+          <li>Conduct manual testing of ERP modules to ensure data consistency, workflow accuracy, and reliable reporting outputs</li>
+          <li>Manage Jira tickets for defect tracking, enhancements, and sprint tasks ensuring timely resolution and continuous system improvement</li>
+          <li>Coordinate and execute UAT, ensuring business requirements are accurately reflected in system reports before deployment</li>
+          <li>Monitor data quality, identify discrepancies, and implement validation checks to ensure accuracy and consistency of reports</li>
+          <li>Prepare analytical reports and present findings, insights, and recommendations to internal stakeholders and management</li>
+        </ul>
+      </div>
 
-<div class="card">
-<h3>Business Analyst – Carelon Global Solutions</h3>
-<small>Nov 2023 – Apr 2025 | Bangalore, India</small>
-<ul>
-<li>Created BRD & FRD documentation.</li>
-<li>Built SQL queries and Power BI dashboards.</li>
-<li>Participated in Agile Scrum ceremonies.</li>
-<li>Coordinated UAT and stakeholder communication.</li>
-</ul>
-</div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-date">Nov 2023 – Apr 2025</span>
+          <span class="timeline-location">📍 Bangalore, India</span>
+        </div>
+        <h3 class="timeline-title">Business Analyst</h3>
+        <div class="timeline-company">Carelon Global Solutions</div>
+        <ul class="timeline-points">
+          <li>Served as the primary liaison between business stakeholders and technical teams, facilitating seamless communication for claims and policy system updates</li>
+          <li>Conducted gap analysis to identify workflow and policy inefficiencies, leading to actionable system enhancements</li>
+          <li>Developed and maintained BRDs and FRDs, ensuring alignment with organisational goals</li>
+          <li>Led User Acceptance Testing — creating test scenarios, validating results, and ensuring defect resolution</li>
+          <li><strong>Identified system bottlenecks and proposed optimisations, resulting in a 15% improvement in processing speed and accuracy</strong></li>
+          <li>Generated data-driven insights using SQL queries and visualised key metrics in Power BI dashboards for leadership reviews</li>
+          <li>Actively participated in Agile Scrum ceremonies — daily stand-ups, sprint planning, and retrospectives</li>
+          <li>Managed project documentation in JIRA and Confluence; trained end-users on new functionalities, enhancing adoption and reducing support queries</li>
+        </ul>
+      </div>
 
-<div class="card">
-<h3>Business Analyst – Simpfly3x Software Pvt Ltd</h3>
-<small>Nov 2022 – Apr 2023 | Bangalore, India</small>
-<ul>
-<li>Requirement gathering and documentation.</li>
-<li>Process improvement initiatives.</li>
-<li>SQL reporting and UAT execution.</li>
-</ul>
-</div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-date">Nov 2022 – Apr 2023</span>
+          <span class="timeline-location">📍 Bangalore, India</span>
+        </div>
+        <h3 class="timeline-title">Business Analyst</h3>
+        <div class="timeline-company">Simpfly3x Software Pvt Ltd</div>
+        <ul class="timeline-points">
+          <li>Acted as the primary liaison between business stakeholders and technical teams for process improvements</li>
+          <li>Analysed workflows and policies, transforming business inputs into actionable system updates</li>
+          <li>Created and maintained BRDs and FRDs, ensuring alignment with business goals</li>
+          <li>Supported UAT planning and execution — validated test scenarios and ensured defect resolution</li>
+          <li>Delivered reports using SQL queries and visualised insights via Power BI for leadership reviews</li>
+          <li>Participated in Agile ceremonies; defined functional specifications and user stories in JIRA and Confluence</li>
+        </ul>
+      </div>
 
-<div class="card">
-<h3>Accountant – Himadri Retreat Cottages</h3>
-<small>Jul 2019 – Jul 2020 | Kerala, India</small>
-<ul>
-<li>Managed payroll and bank reconciliation.</li>
-<li>Prepared financial statements and tax compliance.</li>
-<li>Vendor payment and financial reporting.</li>
-</ul>
-</div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-date">Jul 2019 – Jul 2020</span>
+          <span class="timeline-location">📍 Kerala, India</span>
+        </div>
+        <h3 class="timeline-title">Accountant</h3>
+        <div class="timeline-company">Himadri Retreat Cottages</div>
+        <ul class="timeline-points">
+          <li>Managed full-cycle accounting: invoicing, payroll, bank reconciliations, and expense tracking for an 8-room homestay</li>
+          <li>Prepared monthly financial statements (P&amp;L, balance sheets) for owner review</li>
+          <li>Ensured compliance with local tax regulations (GST, income tax) and filed returns on time</li>
+          <li>Analysed occupancy rates and pricing to recommend cost-saving measures; handled vendor payments and guest billing</li>
+        </ul>
+      </div>
 
+    </div>
+  </div>
 </section>
 
-<!-- EDUCATION -->
 <section id="education">
-<div class="section-title"><h2>Education</h2></div>
-
-<div class="card">
-<h3>MBA in Fintech</h3>
-<small>Pondicherry University | 2020 – 2022</small>
-</div>
-
-<div class="card">
-<h3>BBA</h3>
-<small>Kannur University | 2015 – 2018</small>
-</div>
-
+  <div class="container fade-up">
+    <div class="section-label">04 / Education</div>
+    <h2 class="section-title">Academic Background</h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-degree">MBA in Fintech</div>
+        <div class="edu-school">Pondicherry University</div>
+        <div class="edu-year">Aug 2020 – Jun 2022 · Pondicherry, India</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">BBA</div>
+        <div class="edu-school">Kannur University</div>
+        <div class="edu-year">Aug 2015 – Apr 2018 · Kannur, Kerala</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- PROJECTS -->
+<section id="certifications">
+  <div class="container fade-up">
+    <div class="section-label">05 / Certifications</div>
+    <h2 class="section-title">Credentials</h2>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <div class="cert-icon">📜</div>
+        <div class="cert-body">
+          <div class="cert-name">Certified Business Analyst</div>
+          <div class="cert-issuer">Skillsoft</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🗄️</div>
+        <div class="cert-body">
+          <div class="cert-name">SQL Certification</div>
+          <div class="cert-issuer">Great Learning</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">📊</div>
+        <div class="cert-body">
+          <div class="cert-name">Power BI Certification</div>
+          <div class="cert-issuer">Great Learning</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🏦</div>
+        <div class="cert-body">
+          <div class="cert-name">Certified Industrial Accountant</div>
+          <div class="cert-issuer">Advanced Excel &amp; Business Accounting</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="projects">
-<div class="section-title"><h2>Projects</h2></div>
-
-<div class="card">
-<h3>Bank Financial Dashboard</h3>
-<p>Developed financial insights dashboard using Power BI.</p>
-</div>
-
-<div class="card">
-<h3>Covid Case & Vaccination Report</h3>
-<p>Performed SQL data analysis and reporting for Kerala dataset.</p>
-</div>
-
+  <div class="container fade-up">
+    <div class="section-label">06 / Projects</div>
+    <h2 class="section-title">Selected Work</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-num">01</div>
+        <h3 class="project-title">Bank Financial Dashboard</h3>
+        <div class="project-tags">
+          <span class="project-tag">Power BI</span>
+          <span class="project-tag">DAX</span>
+          <span class="project-tag">Data Modelling</span>
+        </div>
+        <p class="project-desc">Developed a comprehensive financial insights dashboard using Power BI with DAX measures and data modelling, enabling stakeholders to monitor KPIs, trends, and performance metrics in real time.</p>
+      </div>
+      <div class="project-card">
+        <div class="project-num">02</div>
+        <h3 class="project-title">Covid Case &amp; Vaccination Report</h3>
+        <div class="project-tags">
+          <span class="project-tag">SQL</span>
+          <span class="project-tag">Data Analysis</span>
+          <span class="project-tag">Reporting</span>
+        </div>
+        <p class="project-desc">Performed in-depth SQL data analysis and reporting on Kerala's Covid-19 case and vaccination datasets, delivering actionable insights to support healthcare decision-making and resource planning.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
-<div class="section-title"><h2>Contact</h2></div>
-<p style="text-align:center;">📍 Dubai, UAE</p>
-<p style="text-align:center;">📞 +971 507189052</p>
-<p style="text-align:center;">✉ nandhukn010@gmail.com</p>
-<p style="text-align:center;">LinkedIn: linkedin.com/in/nandhu-kn-37635612b</p>
+  <div class="container fade-up">
+    <div class="contact-inner">
+      <div>
+        <div class="section-label">07 / Contact</div>
+        <h2 class="contact-headline">Let's Work<br><span>Together</span></h2>
+        <p class="contact-sub">Open to Business Analyst roles, ERP projects, and BI-driven opportunities in Dubai and beyond.</p>
+        <a href="Nandhu-KN-Resume.pdf" class="btn-primary" download>Download Resume</a>
+      </div>
+      <div class="contact-items">
+        <a href="tel:+971507189052" class="contact-item">
+          <span class="contact-icon">📞</span>+971 507 189 052
+        </a>
+        <a href="mailto:nandhukn010@gmail.com" class="contact-item">
+          <span class="contact-icon">✉️</span>nandhukn010@gmail.com
+        </a>
+        <a href="https://linkedin.com/in/nandhu-kn-37635612b" target="_blank" class="contact-item">
+          <span class="contact-icon">💼</span>linkedin.com/in/nandhu-kn-37635612b
+        </a>
+        <div class="contact-item">
+          <span class="contact-icon">📍</span>Dubai, UAE
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer>
-© 2026 Nandhu KN | All Rights Reserved
+  <p>© 2026 <span>Nandhu KN</span> · Business Analyst · Dubai, UAE · All Rights Reserved</p>
 </footer>
 
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
